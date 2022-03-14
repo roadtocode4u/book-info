@@ -37,6 +37,12 @@ app.use(bodyParser.json());
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use((req, res, next)=>{
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+})
+
 const PORT = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
@@ -45,7 +51,6 @@ app.get('/', (req, res) => {
 
 //Create Book
 app.post('/book', (req, res) => {
-  console.log(req.body);
   const newBook = req.body;
   books.push(newBook);
 
