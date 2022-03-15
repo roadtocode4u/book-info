@@ -1,31 +1,44 @@
 import './App.css';
-import axios from "axios"
-import {useState, useEffect} from "react";
 
-import BookCard from './BookCard/BookCard';
+import Home from './Home/Home';
+import AddBook from './AddBook/AddBook';
+
+import {BrowserRouter, Routes, Route, Link}  from 'react-router-dom';
 
 function App() {
-
-  const [books, setBooks] = useState([]);
-
-  useEffect(() => {
-    async function fetchData(){
-      const response =await axios.get('http://localhost:5000/book')
-      setBooks(response.data.data)
-     // console.log(response.data.data)
-    }
-    fetchData()
-  })
-
   return (
-    <>
-      <h1 className="text-center">Book Info</h1>
-      <div className="container">
-        {
-          books.map(book => <BookCard key={book.isbn} isbn={book.isbn}  title={book.title} author={book.author} price={book.price} />)
-        }
-      </div>
-    </>
+   <>
+
+<BrowserRouter>
+
+   <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div className="container-fluid">
+    <Link className="navbar-brand" to="/">Book Info</Link>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/addbook">Add Book</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/searchbook">Search Book</Link>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/addbook" element={<AddBook/>} />
+      </Routes>
+    </BrowserRouter>
+   </>
   );
 }
 
