@@ -17,7 +17,7 @@ function AddBook() {
   });
 
   async function addBook(){
-    const response  = await axios.post("https://book-info-icp.herokuapp.com/book", book);
+    const response  = await axios.post(`${process.env.BASE_URL}/book`, book);
     if(response.data.status === "success")
     {
       alert(response.data.message);
