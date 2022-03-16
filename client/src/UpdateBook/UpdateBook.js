@@ -19,7 +19,7 @@ function UpdateBook() {
 
   useEffect(()=>{
     async function getBook(){
-      const response = await axios.get(`http://localhost:5000/book/${isbn}`);
+      const response = await axios.get(`https://book-info-icp.herokuapp.com/book/${isbn}`);
       setBook(response.data.book);
     }
     getBook();
@@ -28,7 +28,7 @@ function UpdateBook() {
  
 
   async function updateBook(){
-    const response  = await axios.post(`http://localhost:5000/update/book/${isbn}`, book);
+    const response  = await axios.post(`https://book-info-icp.herokuapp.com/update/book/${isbn}`, book);
     if(response.data.status === "success")
     {
       alert(response.data.message);

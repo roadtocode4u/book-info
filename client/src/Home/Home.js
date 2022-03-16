@@ -11,7 +11,7 @@ function Home() {
 
   useEffect(() => {
     async function fetchData(){
-      const response =await axios.get('http://localhost:5000/book')
+      const response =await axios.get('https://book-info-icp.herokuapp.com/book')
       setBooks(response.data.data)
      // console.log(response.data.data)
     }

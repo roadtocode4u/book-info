@@ -46,9 +46,6 @@ app.use((req, res, next)=>{
 
 const PORT = process.env.PORT || 5000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
 
 //Create Book
 app.post('/book', (req, res) => {
