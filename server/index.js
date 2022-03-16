@@ -1,6 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 const bodyParser = require('body-parser');
+const path = require('path'); 
 
 let books =  [
   {
@@ -145,6 +146,12 @@ app.post('/update/book/:isbn', (req, res)=>{
   })
 
    
+});
+
+app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
 });
 
 app.listen(PORT, () => {
