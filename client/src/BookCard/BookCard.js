@@ -7,7 +7,7 @@ import  './BookCard.css'
 function BookCard(props) {
 
   async function deleteBook(isbn){
-    const response =await  axios.post(`http://localhost:5000/book/${isbn}`)
+    const response =await  axios.post(`https://book-info-icp.herokuapp.com/book/${isbn}`)
     alert(response.data.message);
     //document.getElementById(isbn).style.display = "none";
   }
