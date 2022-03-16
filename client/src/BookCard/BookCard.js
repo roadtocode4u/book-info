@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from "axios";
+import {Link} from 'react-router-dom';
 
 import  './BookCard.css'
 
@@ -22,7 +23,7 @@ function BookCard(props) {
         </div>
         <div className="col-md-4">
           <button className="btn btn-danger w-100" onClick={()=>{deleteBook(props.isbn)}}>Delete</button>
-          <button className="btn btn-primary w-100 mt-3">Update</button>
+          <Link className="btn btn-primary w-100 mt-3" to={`/updatebook/${props.isbn}`}>Update</Link>
         </div>
       </div>
     </div>

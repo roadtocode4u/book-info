@@ -119,7 +119,7 @@ app.get('/book', (req, res) => {
 });
 
 //Update book by isbn
-app.put('/book/:isbn', (req, res)=>{
+app.post('/update/book/:isbn', (req, res)=>{
   const isbn = req.params.isbn;
 
   const newBook = {

@@ -4,6 +4,7 @@ import Home from './Home/Home';
 import AddBook from './AddBook/AddBook';
 
 import {BrowserRouter, Routes, Route, Link}  from 'react-router-dom';
+import UpdateBook from './UpdateBook/UpdateBook';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/addbook" element={<AddBook/>} />
+        <Route path="/updatebook/:isbn" element={<UpdateBook/>} />
       </Routes>
     </BrowserRouter>
    </>
